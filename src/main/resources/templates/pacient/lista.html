@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="utf-8" />
+<title>VetSoft</title>
+</head>
+<body>
+	<div align="center">
+		
+		
+		<div>
+		<h1>Lista Pacienti</h1>
+		<a href="newPacient">Adauga pacient</a> 
+			<br /> <br />
+
+		</div>
+		
+		<div>
+		<form th:action="@{/listaPacienti}">
+			Filtru:
+			<input type="text" name="keyword" th:value="${keyword}" required />
+			<input type="submit" value="Cauta"/>
+			<input type="button" value="Inapoi" id="btnClear" onclick="clearFilter()" />
+		</form>
+		
+		
+		</div>
+		
+		
+		
+		
+		<div>
+		<table border="1" cellpadding="10">
+			<thead>
+				<tr>
+					<th>Id</th>
+					<th>Nume</th>
+					<th>Specie</th>
+					<th>Rasa</th>
+					<th>Sex</th>
+					<th>Varsta</th>
+					<th>Proprietar</th>
+					<th>Achitat</th>
+					<th>Restante[Ron]</th>
+					<th>Alege</th>
+				</tr>
+			</thead>
+			<tbody>
+				<tr th:each="pacient : ${listaPacienti}">
+					<td th:text="${pacient.id}">Id</td>
+					<td th:text="${pacient.nume}">Nume</td>
+					<td th:text="${pacient.specie}">Specie</td>
+					<td th:text="${pacient.rasa}">Rasa</td>
+					<td th:text="${pacient.sex}">Sex</td>
+					<td th:text="${pacient.varsta}">Varsta</td>
+					<td th:text="${pacient.proprietar}">Proprietar</td>
+					<td th:text="${pacient.achitat}">Achitat</td>
+					<td th:text="${pacient.restante}">Restante[Ron]</td>
+
+					<td><a th:href="@{'/editPacient/' + ${pacient.id}}">Edit</a>
+					
+						<a th:href="@{'/deletePacient/' + ${pacient.id}}">Delete</a></td>
+				</tr>
+			</tbody>
+		</table>
+		</div>
+		<script type="text/javascript">
+	function clearFilter() {
+		window.location = "/listaPacienti";
+	}
+</script>
+		
+		
+	</div>
+</body>
+</html>

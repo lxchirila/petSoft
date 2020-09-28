@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="utf-8" />
+<title>VetSoft</title>
+<style>
+body{background-color:powderBlue;}
+
+</style>
+</head>
+<body>
+	<div align="center">
+		<div>
+		<h1>Lista Proprietari</h1>
+		<a href="newProprietar">Adauga proprietar</a> <br /> <br />
+		</div>
+		
+		
+		<div>
+		<form th:action="@{/listaProprietari}">
+			Filtru:
+			<input type="text" name="keyword" th:value="${keyword}" required />
+			<input type="submit" value="Cauta"/>
+			<input type="button" value="Inapoi" id="btnClear" onclick="clearFilter()" />
+		</form>
+		
+		
+		</div>
+		
+		
+		
+		<div>
+		<table border="1" cellpadding="10">
+			<thead>
+				<tr>
+					<th>Id</th>
+					<th>Nume</th>
+					<th>Telefon</th>
+					<th>Email</th>
+					<th>Restante[Ron]</th>
+					<th>Alege</th>
+				</tr>
+			</thead>
+			<tbody>
+				<tr th:each="proprietar : ${listaProprietari}">
+					<td th:text="${proprietar.id}">Id</td>
+					<td th:text="${proprietar.nume}">Nume</td>
+					<td th:text="${proprietar.telefon}">Telefon</td>
+					<td th:text="${proprietar.email}">Email</td>
+					<td th:text="${proprietar.restante}">Restante[Ron]</td>
+
+					<td><a th:href="@{'/editProprietar/' + ${proprietar.id}}">Edit</a>
+
+						<a th:href="@{'/deleteProprietar/' + ${proprietar.id}}">Delete</a></td>
+				</tr>
+			</tbody>
+		</table>
+		</div>
+	</div>
+	<script type="text/javascript">
+	function clearFilter() {
+		window.location = "/listaProprietari";
+	}
+</script>
+</body>
+</html>
