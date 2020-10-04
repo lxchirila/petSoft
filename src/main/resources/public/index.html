@@ -3,28 +3,42 @@
 <head>
 <meta charset="ISO-8859-1">
 
-<title>VetSoft</title>
+<title>PetSoft</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 <style>
-body{background-color:powderBlue;}
-h1{color:white;}
-p{color:white;}
+body {
+
+  background-image: url('dog.jpg');
+  background-repeat: no-repeat;
+     background-attachment: fixed;
+  background-size: 100% 100%;
+}
+h1{
+color:white;}
 </style>
 
 </head>
 
 <body>
 	
-	<h1 style="text-align: center;font-size:50px">VetSoft</h1>
+	<h1 style="text-align: center;font-size:50px">PetSoft</h1>
 	<p style="font-size:30px">
 		
 	
 	<form method="get" action="/listaProprietari">
-    <button type="submit">Lista Proprietari</button>
+	<p align="center">
+    <button style="font-size:19px" type="submit"><i class="fa fa-address-book-o"> Lista Proprietari </i></button>
+    </p>
 </form>
 
+
 <form method="get" action="/listaPacienti">
-    <button type="submit">Lista Pacienti</button>
+<p align="center">
+    <button style="font-size:18px" type="submit"><i class="fa fa-paw"> Lista Pacienti</i></button>
+</p>
 </form>
+
 	
 	
 	

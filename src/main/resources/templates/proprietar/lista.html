@@ -3,12 +3,13 @@
 	xmlns:th="http://www.thymeleaf.org">
 <head>
 <meta charset="utf-8" />
-<title>VetSoft</title>
+<title>PetSoft</title>
 <style>
-body{background-color:powderBlue;}
+body{background-color:#BBBDBE;}
 
 </style>
 </head>
+
 <body>
 	<div align="center">
 		<div>
@@ -20,9 +21,11 @@ body{background-color:powderBlue;}
 		<div>
 		<form th:action="@{/listaProprietari}">
 			Filtru:
+			
 			<input type="text" name="keyword" th:value="${keyword}" required />
 			<input type="submit" value="Cauta"/>
 			<input type="button" value="Inapoi" id="btnClear" onclick="clearFilter()" />
+			
 		</form>
 		
 		
@@ -31,7 +34,9 @@ body{background-color:powderBlue;}
 		
 		
 		<div>
-		<table border="1" cellpadding="10">
+		<table border="1"
+				
+				cellpadding="10">
 			<thead>
 				<tr>
 					<th>Id</th>

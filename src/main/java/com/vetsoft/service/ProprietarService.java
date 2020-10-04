@@ -26,7 +26,7 @@ public class ProprietarService {
 	public void save(Proprietar proprietar) {
 		repository.save(proprietar);
 	}
-
+	
 	public Proprietar get(long id) {
 		return repository.findById(id).get();
 	}

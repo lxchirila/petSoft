@@ -45,7 +45,7 @@ public class ProprietarController {
 	}
 
 	@RequestMapping("/editProprietar/{id}")
-	public ModelAndView showEditProprietarPage(@PathVariable(name = "id") int id) {
+	public ModelAndView showEditProprietarPage(@PathVariable(name = "id") long id) {
 		ModelAndView model = new ModelAndView("proprietar/edit_proprietar");
 		Proprietar proprietar = service.get(id);
 		model.addObject("proprietar", proprietar);
@@ -55,7 +55,7 @@ public class ProprietarController {
 	}
 
 	@RequestMapping("/deleteProprietar/{id}")
-	public String deleteProprietar(@PathVariable(name = "id") int id) {
+	public String deleteProprietar(@PathVariable(name = "id") long id) {
 		service.delete(id);
 		return "redirect:/listaProprietari";
 	}

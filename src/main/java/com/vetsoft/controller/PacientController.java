@@ -45,7 +45,7 @@ public class PacientController {
 	}
 
 	@RequestMapping("/editPacient/{id}")
-	public ModelAndView showEditPacientPage(@PathVariable(name = "id") int id) {
+	public ModelAndView showEditPacientPage(@PathVariable(name = "id") long id) {
 		ModelAndView model = new ModelAndView("pacient/edit_pacient");
 		Pacient pacient = service.get(id);
 		model.addObject("pacient", pacient);
@@ -54,7 +54,7 @@ public class PacientController {
 	}
 
 	@RequestMapping("/deletePacient/{id}")
-	public String deletePacient(@PathVariable(name = "id") int id) {
+	public String deletePacient(@PathVariable(name = "id") long id) {
 		service.delete(id);
 		return "redirect:/listaPacienti";
 	}
